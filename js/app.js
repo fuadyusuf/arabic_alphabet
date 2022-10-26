@@ -109,7 +109,7 @@ const lettersObjectArray = [
 })();
 
 function closeTest() {
-  window.open('', '_self').close();
+  window.location = 'http://google.com/';
 }
 
 function calculatScore(arr1, arr2) {
