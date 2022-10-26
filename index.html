@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>My Project</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="end-game">
+        <div class="modal">
+          <i class="fa-solid fa-xmark fa-2x"></i>
+          <h1 class="lineUp">GAME OVER!</h1>
+          <div class="btn-container">
+            <button id="closeApp" class="btn red">Close App</button>
+            <button id="restart" class="btn green">Start Again</button>
+          </div>
+        </div>
+      </div>
+      <!-- test & correction section -->
+      <div class="top-section">
+        <div id="2" class="test-letter box-bg"></div>
+        <div class="options">
+          <div class="radio">
+            <label class="radio-label" for="start"
+              >Start
+              <input type="radio" name="position" id="start" value="start" />
+            </label>
+          </div>
+          <div class="radio">
+            <label class="radio-label" for="middle"
+              >Middle
+              <input type="radio" name="position" id="middle" value="middle" />
+            </label>
+          </div>
+          <div class="radio">
+            <label class="radio-label" for="end"
+              >End
+              <input type="radio" name="position" id="end" value="end" />
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- alphabet grid -->
+      <div class="alphabet-grid mb-4">
+        <div id="1" class="box-sm">ا</div>
+        <div id="2" class="box-sm">ب​​</div>
+        <div id="3" class="box-sm">ت​​</div>
+        <div id="4" class="box-sm">ث​</div>
+        <div id="5" class="box-sm">ج​​​​</div>
+        <div id="6" class="box-sm">ح</div>
+        <div id="7" class="box-sm">​​خ</div>
+        <div id="8" class="box-sm">د​​</div>
+        <div id="9" class="box-sm">ذ​​</div>
+        <div id="10" class="box-sm">​ر</div>
+        <div id="11" class="box-sm">ز​​</div>
+        <div id="12" class="box-sm">س</div>
+        <div id="13" class="box-sm">ش​​</div>
+        <div id="14" class="box-sm">ص</div>
+        <div id="15" class="box-sm">ض​​</div>
+        <div id="16" class="box-sm">ط​​</div>
+        <div id="17" class="box-sm">ظ</div>
+        <div id="18" class="box-sm">ع​​</div>
+        <div id="19" class="box-sm">غ</div>
+        <div id="20" class="box-sm">ف​​</div>
+        <div id="21" class="box-sm">ق​​</div>
+        <div id="22" class="box-sm">​ك</div>
+        <div id="23" class="box-sm">ل</div>
+        <div id="24" class="box-sm">​م</div>
+        <div id="25" class="box-sm">​​ن</div>
+        <div id="26" class="box-sm">​ه​​</div>
+        <div id="27" class="box-sm">و​​</div>
+        <di id="28" class="box-sm">ي</di>
+      </div>
+      <!-- results grid -->
+      <h1 class="mb-4 error-title">Result Section</h1>
+      <div class="results-grid">
+        <!--
+          <div id="6" class="box-sm">
+          ح
+          <span class="count red">0</span>
+        </div>
+      --></div>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

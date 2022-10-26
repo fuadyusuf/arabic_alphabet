@@ -1,0 +1,25 @@
+1------------------------------------------------------------
+onload - checkGameState(){
+	if(state=true)
+		startGame(){
+		generateRandomLetter()
+		checkRandomLetter() - checks if letter is in correctList
+		displayTestLetter()
+		unCheckRadioBtns()
+}
+	else endGame()
+}
+2------------------------------------------------------------
+onclick checkAnswer(){
+	if(correct){
+	   addToCorrect()
+}	else {
+	   addToWrong()
+}
+	updateResults()
+	checkGameState()
+}
+-------------------------------------------------------------
+Todo
+-------------------------------------------------------------
+display score in end modal
