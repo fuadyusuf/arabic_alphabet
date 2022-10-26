@@ -112,9 +112,24 @@ function closeTest() {
   window.location = 'http://google.com/';
 }
 
-function calculatScore(arr1, arr2) {
-  const total = arr1.length + arr2.length;
-  console.log(`Your score is ${arr1.length} / ${total}`);
+function displayScore(num1, num2) {
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = '';
+  const total = num1 + num2;
+  const topNum = document.createElement('span');
+  const divider = document.createElement('span');
+  const totalNum = document.createElement('span');
+  const containerDiv = document.createElement('div');
+
+  topNum.textContent = num1;
+  divider.textContent = '/';
+  totalNum.textContent = total;
+
+  containerDiv.appendChild(topNum);
+  containerDiv.appendChild(divider);
+  containerDiv.appendChild(totalNum);
+
+  resultDiv.appendChild(containerDiv);
 }
 
 function displayCorrect() {
@@ -169,10 +184,6 @@ function createWrongLetterDiv(letterObj) {
   return wrongLetterDiv;
 }
 
-function displayErrorTitle() {
-  errorTitleEl.style.display = 'block';
-}
-
 function restartGame() {
   gameState = true;
   correct = [];
@@ -181,6 +192,7 @@ function restartGame() {
   resultsGridDiv.innerHTML = '';
   unCheckRadioBtns();
   checkGameState();
+  errorTitleEl.style.display = 'none';
 }
 
 function checkAnswer(e) {
@@ -188,6 +200,8 @@ function checkAnswer(e) {
     alert('select a position');
     return;
   }
+
+  errorTitleEl.style.display = 'block';
 
   if (
     gameState &&
@@ -239,7 +253,7 @@ function checkGameState() {
   if (gameState) {
     startGame();
   } else {
-    calculatScore(correct, wrong);
+    displayScore(correct.length, wrong.length);
     endGame();
   }
 }
