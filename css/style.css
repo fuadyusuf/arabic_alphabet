@@ -108,7 +108,7 @@ label{
   width: 90px;
   height: 90px;
   margin: 50px auto 30px auto;
-  border: 5px solid #000;
+  border: 4px solid #000;
 }
 
 .box-bg.test-letter {
@@ -120,9 +120,12 @@ label{
   position: relative;
 }
 
-/* .container{
-  width: 100%;
-} */
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /* End game */
 .end-game{
@@ -277,4 +280,24 @@ label{
 
 .box-sm:hover{
   border: 5px solid var(--blue);
+}
+
+
+/* Media queries */
+
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .alphabet-grid{
+    width: 90%;
+  }
+
+  .box-sm{
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+  }
 }
