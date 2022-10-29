@@ -21,9 +21,9 @@ const lettersObjectArray = [
     groupId: 1,
     parent: 'ﺍ',
     form: 'ـﺎ',
-    position: 'mid',
+    position: 'end',
     sound: 'alif',
-    special: false,
+    special: true,
   },
   {
     id: 2,
@@ -52,6 +52,7 @@ const lettersObjectArray = [
     sound: 'baa',
     special: false,
   },
+
   {
     id: 5,
     groupId: 3,
@@ -193,32 +194,33 @@ const lettersObjectArray = [
     sound: 'kha',
     special: false,
   },
+  /*
   {
     id: 20,
     groupId: 8,
     parent: 'ﺩ',
     form: 'ـﺪ',
-    position: 'mid',
+    position: 'end',
     sound: 'dal',
-    special: false,
+    special: true,
   },
   {
     id: 21,
     groupId: 9,
     parent: 'ﺫ',
     form: 'ـﺬ',
-    position: 'mid',
+    position: 'end',
     sound: 'dthal',
-    special: false,
+    special: true,
   },
   {
     id: 22,
     groupId: 10,
     parent: 'ﺭ',
     form: 'ـﺮ',
-    position: 'mid',
+    position: 'end',
     sound: 'ra',
-    special: false,
+    special: true,
   },
 
   {
@@ -226,9 +228,9 @@ const lettersObjectArray = [
     groupId: 11,
     parent: 'ﺯ',
     form: 'ـﺰ',
-    position: 'mid',
+    position: 'end',
     sound: 'za',
-    special: false,
+    special: true,
   },
 
   {
@@ -647,9 +649,9 @@ const lettersObjectArray = [
     groupId: 27,
     parent: 'ﻭ',
     form: 'ـﻮ',
-    position: 'mid',
+    position: 'end',
     sound: 'waaw',
-    special: false,
+    special: true,
   },
   {
     id: 70,
@@ -680,6 +682,7 @@ const lettersObjectArray = [
     sound: 'ya',
     special: false,
   },
+*/
 ];
 
 (() => {
@@ -703,7 +706,7 @@ function displayScore(num1, num2) {
   const topNum = document.createElement('span');
   const divider = document.createElement('span');
   const totalNum = document.createElement('span');
-  const containerDiv = createElement('div')();
+  const containerDiv = createElement('div');
 
   topNum.textContent = num1;
   divider.textContent = '/';
@@ -813,10 +816,10 @@ function checkAnswer(e) {
   ) {
     correct.push(randomLetter);
     flashLetter(e.target, 'green');
+    // displayCorrect();
   } else {
     wrong.push(randomLetter);
     flashLetter(e.target, 'red');
-
     displayWrong();
   }
   checkGameState();
