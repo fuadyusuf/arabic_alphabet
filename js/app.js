@@ -194,7 +194,7 @@ const lettersObjectArray = [
     sound: 'kha',
     special: false,
   },
-  /*
+
   {
     id: 20,
     groupId: 8,
@@ -682,7 +682,6 @@ const lettersObjectArray = [
     sound: 'ya',
     special: false,
   },
-*/
 ];
 
 (() => {
