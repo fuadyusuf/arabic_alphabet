@@ -20,81 +20,665 @@ const lettersObjectArray = [
     id: 1,
     groupId: 1,
     parent: 'ﺍ',
-    name: 'ـﺎ',
-    position: 'middle',
+    form: 'ـﺎ',
+    position: 'mid',
     sound: 'alif',
+    special: false,
   },
   {
     id: 2,
     groupId: 2,
     parent: 'ﺏ',
-    name: 'ﺑـ',
+    form: 'ﺑـ',
     position: 'start',
     sound: 'baa',
+    special: false,
   },
   {
     id: 3,
     groupId: 2,
     parent: 'ﺏ',
-    name: 'ـﺒـ',
-    position: 'middle',
+    form: 'ـﺒـ',
+    position: 'mid',
     sound: 'baa',
+    special: false,
   },
   {
     id: 4,
     groupId: 2,
     parent: 'ﺏ',
-    name: 'ـﺐ',
+    form: 'ـﺐ',
     position: 'end',
     sound: 'baa',
+    special: false,
   },
   {
     id: 5,
     groupId: 3,
     parent: 'ﺕ',
-    name: 'ﺗـ',
+    form: 'ﺗـ',
     position: 'start',
     sound: 'ta',
+    special: false,
   },
+
   {
     id: 6,
     groupId: 3,
     parent: 'ﺕ',
-    name: 'ـﺘـ',
-    position: 'middle',
+    form: 'ـﺘـ',
+    position: 'mid',
     sound: 'ta',
+    special: false,
   },
+
   {
     id: 7,
     groupId: 3,
     parent: 'ﺕ',
-    name: 'ـﺖ',
+    form: 'ـﺖ',
     position: 'end',
     sound: 'ta',
+    special: false,
   },
+
   {
     id: 8,
     groupId: 4,
     parent: 'ﺙ',
-    name: 'ﺛـ',
+    form: 'ﺛـ',
     position: 'start',
     sound: 'tha',
+    special: false,
   },
   {
     id: 9,
     groupId: 4,
     parent: 'ﺙ',
-    name: 'ـﺜـ',
-    position: 'middle',
+    form: 'ـﺜـ',
+    position: 'mid',
     sound: 'tha',
+    special: false,
   },
   {
     id: 10,
     groupId: 4,
     parent: 'ﺙ',
-    name: 'ـﺚ',
+    form: 'ـﺚ',
     position: 'end',
     sound: 'tha',
+    special: false,
+  },
+  {
+    id: 11,
+    groupId: 5,
+    parent: 'ﺝ',
+    form: 'ﺟـ',
+    position: 'start',
+    sound: 'jiim',
+    special: false,
+  },
+  {
+    id: 12,
+    groupId: 5,
+    parent: 'ﺝ',
+    form: 'ـﺠـ',
+    position: 'mid',
+    sound: 'jiim',
+    special: false,
+  },
+  {
+    id: 13,
+    groupId: 5,
+    parent: 'ﺝ',
+    form: 'ـﺞ',
+    position: 'end',
+    sound: 'jiim',
+    special: false,
+  },
+  {
+    id: 14,
+    groupId: 6,
+    parent: 'ﺡ',
+    form: 'ﺣـ',
+    position: 'start',
+    sound: 'Ha',
+    special: false,
+  },
+
+  {
+    id: 15,
+    groupId: 6,
+    parent: 'ﺡ',
+    form: 'ـﺤـ',
+    position: 'mid',
+    sound: 'Ha',
+    special: false,
+  },
+
+  {
+    id: 16,
+    groupId: 6,
+    parent: 'ﺡ',
+    form: 'ـﺢ',
+    position: 'end',
+    sound: 'Ha',
+    special: false,
+  },
+
+  {
+    id: 17,
+    groupId: 7,
+    parent: 'ﺥ',
+    form: 'ﺧـ',
+    position: 'start',
+    sound: 'kha',
+    special: false,
+  },
+  {
+    id: 18,
+    groupId: 7,
+    parent: 'ﺥ',
+    form: 'ـﺨـ',
+    position: 'mid',
+    sound: 'kha',
+    special: false,
+  },
+  {
+    id: 19,
+    groupId: 7,
+    parent: 'ﺥ',
+    form: 'ـﺦ',
+    position: 'end',
+    sound: 'kha',
+    special: false,
+  },
+  {
+    id: 20,
+    groupId: 8,
+    parent: 'ﺩ',
+    form: 'ـﺪ',
+    position: 'mid',
+    sound: 'dal',
+    special: false,
+  },
+  {
+    id: 21,
+    groupId: 9,
+    parent: 'ﺫ',
+    form: 'ـﺬ',
+    position: 'mid',
+    sound: 'dthal',
+    special: false,
+  },
+  {
+    id: 22,
+    groupId: 10,
+    parent: 'ﺭ',
+    form: 'ـﺮ',
+    position: 'mid',
+    sound: 'ra',
+    special: false,
+  },
+
+  {
+    id: 23,
+    groupId: 11,
+    parent: 'ﺯ',
+    form: 'ـﺰ',
+    position: 'mid',
+    sound: 'za',
+    special: false,
+  },
+
+  {
+    id: 24,
+    groupId: 12,
+    parent: 'ﺱ',
+    form: 'ﺳـ',
+    position: 'start',
+    sound: 'siin',
+    special: false,
+  },
+  {
+    id: 25,
+    groupId: 12,
+    parent: 'ﺱ',
+    form: 'ـﺴـ',
+    position: 'mid',
+    sound: 'siin',
+    special: false,
+  },
+  {
+    id: 26,
+    groupId: 12,
+    parent: 'ﺱ',
+    form: 'ـﺲ',
+    position: 'end',
+    sound: 'siin',
+    special: false,
+  },
+  {
+    id: 27,
+    groupId: 13,
+    parent: 'ﺵ',
+    form: 'ﺷـ',
+    position: 'start',
+    sound: 'shiin',
+    special: false,
+  },
+  {
+    id: 28,
+    groupId: 13,
+    parent: 'ﺵ',
+    form: 'ـﺸـ',
+    position: 'mid',
+    sound: 'shiin',
+    special: false,
+  },
+  {
+    id: 29,
+    groupId: 13,
+    parent: 'ﺵ',
+    form: 'ـﺶ',
+    position: 'end',
+    sound: 'shiin',
+    special: false,
+  },
+  {
+    id: 30,
+    groupId: 14,
+    parent: 'ﺹ',
+    form: 'ﺻـ',
+    position: 'start',
+    sound: 'saad',
+    special: false,
+  },
+  {
+    id: 31,
+    groupId: 14,
+    parent: 'ﺹ',
+    form: 'ـﺼـ',
+    position: 'mid',
+    sound: 'saad',
+    special: false,
+  },
+  {
+    id: 32,
+    groupId: 14,
+    parent: 'ﺹ',
+    form: 'ـﺺ',
+    position: 'end',
+    sound: 'saad',
+    special: false,
+  },
+  {
+    id: 33,
+    groupId: 15,
+    parent: 'ﺽ',
+    form: 'ﺿـ',
+    position: 'start',
+    sound: 'dhaad',
+    special: false,
+  },
+  {
+    id: 34,
+    groupId: 15,
+    parent: 'ﺽ',
+    form: 'ـﻀـ',
+    position: 'mid',
+    sound: 'dhaad',
+    special: false,
+  },
+  {
+    id: 35,
+    groupId: 15,
+    parent: 'ﺽ',
+    form: 'ـﺾ',
+    position: 'end',
+    sound: 'dhaad',
+    special: false,
+  },
+  {
+    id: 36,
+    groupId: 16,
+    parent: 'ﻁ',
+    form: 'ﻃـ',
+    position: 'start',
+    sound: 'tda',
+    special: false,
+  },
+  {
+    id: 37,
+    groupId: 16,
+    parent: 'ﻁ',
+    form: 'ـﻄـ',
+    position: 'mid',
+    sound: 'tda',
+    special: false,
+  },
+  {
+    id: 38,
+    groupId: 16,
+    parent: 'ﻁ',
+    form: 'ـﻂ',
+    position: 'end',
+    sound: 'tda',
+    special: false,
+  },
+  {
+    id: 39,
+    groupId: 17,
+    parent: 'ﻅ',
+    form: 'ﻇـ',
+    position: 'start',
+    sound: 'dha',
+    special: false,
+  },
+  {
+    id: 40,
+    groupId: 17,
+    parent: 'ﻅ',
+    form: 'ـﻈـ',
+    position: 'mid',
+    sound: 'dha',
+    special: false,
+  },
+  {
+    id: 41,
+    groupId: 17,
+    parent: 'ﻅ',
+    form: 'ـﻆ',
+    position: 'end',
+    sound: 'dha',
+    special: false,
+  },
+  {
+    id: 42,
+    groupId: 18,
+    parent: 'ﻉ',
+    form: 'ﻋـ',
+    position: 'start',
+    sound: 'ayn',
+    special: false,
+  },
+  {
+    id: 43,
+    groupId: 18,
+    parent: 'ﻉ',
+    form: 'ـﻌـ',
+    position: 'mid',
+    sound: 'ayn',
+    special: false,
+  },
+  {
+    id: 44,
+    groupId: 18,
+    parent: 'ﻉ',
+    form: 'ـﻊ',
+    position: 'end',
+    sound: 'ayn',
+    special: false,
+  },
+  {
+    id: 45,
+    groupId: 19,
+    parent: 'ﻍ',
+    form: 'ﻏـ',
+    position: 'start',
+    sound: 'ghayn',
+    special: false,
+  },
+  {
+    id: 46,
+    groupId: 19,
+    parent: 'ﻍ',
+    form: 'ـﻐـ',
+    position: 'mid',
+    sound: 'ghayn',
+    special: false,
+  },
+  {
+    id: 47,
+    groupId: 19,
+    parent: 'ﻍ',
+    form: 'ـﻎ',
+    position: 'end',
+    sound: 'ghayn',
+    special: false,
+  },
+  {
+    id: 48,
+    groupId: 20,
+    parent: 'ﻑ',
+    form: 'ﻓـ',
+    position: 'start',
+    sound: 'fa',
+    special: false,
+  },
+
+  {
+    id: 49,
+    groupId: 20,
+    parent: 'ﻑ',
+    form: 'ـﻔـ',
+    position: 'mid',
+    sound: 'fa',
+    special: false,
+  },
+
+  {
+    id: 50,
+    groupId: 20,
+    parent: 'ﻑ',
+    form: 'ـﻒ',
+    position: 'end',
+    sound: 'fa',
+    special: false,
+  },
+
+  {
+    id: 51,
+    groupId: 21,
+    parent: 'ﻕ',
+    form: 'ﻗـ',
+    position: 'start',
+    sound: 'qaaf',
+    special: false,
+  },
+  {
+    id: 52,
+    groupId: 21,
+    parent: 'ﻕ',
+    form: 'ـﻘـ',
+    position: 'mid',
+    sound: 'qaaf',
+    special: false,
+  },
+  {
+    id: 53,
+    groupId: 21,
+    parent: 'ﻕ',
+    form: 'ـﻖ',
+    position: 'end',
+    sound: 'qaaf',
+    special: false,
+  },
+  {
+    id: 54,
+    groupId: 22,
+    parent: 'ﻙ',
+    form: 'ﻛـ',
+    position: 'start',
+    sound: 'kaaf',
+    special: false,
+  },
+  {
+    id: 55,
+    groupId: 22,
+    parent: 'ﻙ',
+    form: 'ـﻜـ',
+    position: 'mid',
+    sound: 'kaaf',
+    special: false,
+  },
+  {
+    id: 56,
+    groupId: 22,
+    parent: 'ﻙ',
+    form: 'ـﻚ',
+    position: 'end',
+    sound: 'kaaf',
+    special: false,
+  },
+  {
+    id: 57,
+    groupId: 23,
+    parent: 'ﻝ',
+    form: 'ﻟـ',
+    position: 'start',
+    sound: 'laam',
+    special: false,
+  },
+  {
+    id: 58,
+    groupId: 23,
+    parent: 'ﻝ',
+    form: 'ـﻠـ',
+    position: 'mid',
+    sound: 'laam',
+    special: false,
+  },
+  {
+    id: 59,
+    groupId: 23,
+    parent: 'ﻝ',
+    form: 'ـﻞ',
+    position: 'end',
+    sound: 'laam',
+    special: false,
+  },
+  {
+    id: 60,
+    groupId: 24,
+    parent: 'ﻡ',
+    form: 'ﻣـ',
+    position: 'start',
+    sound: 'miim',
+    special: false,
+  },
+  {
+    id: 61,
+    groupId: 24,
+    parent: 'ﻡ',
+    form: 'ـﻤـ',
+    position: 'mid',
+    sound: 'miim',
+    special: false,
+  },
+  {
+    id: 62,
+    groupId: 24,
+    parent: 'ﻡ',
+    form: 'ـﻢ',
+    position: 'end',
+    sound: 'miim',
+    special: false,
+  },
+  {
+    id: 63,
+    groupId: 25,
+    parent: 'ﻥ',
+    form: 'ﻧـ',
+    position: 'start',
+    sound: 'noon',
+    special: false,
+  },
+  {
+    id: 64,
+    groupId: 25,
+    parent: 'ﻥ',
+    form: 'ـﻨـ',
+    position: 'mid',
+    sound: 'noon',
+    special: false,
+  },
+  {
+    id: 65,
+    groupId: 25,
+    parent: 'ﻥ',
+    form: 'ـﻦ',
+    position: 'end',
+    sound: 'noon',
+    special: false,
+  },
+  {
+    id: 66,
+    groupId: 26,
+    parent: 'ﻩ',
+    form: 'ﻫـ',
+    position: 'start',
+    sound: 'ha',
+    special: false,
+  },
+
+  {
+    id: 67,
+    groupId: 26,
+    parent: 'ﻩ',
+    form: 'ـﻬـ',
+    position: 'mid',
+    sound: 'ha',
+    special: false,
+  },
+
+  {
+    id: 68,
+    groupId: 26,
+    parent: 'ﻩ',
+    form: 'ـﻪ',
+    position: 'end',
+    sound: 'ha',
+    special: false,
+  },
+
+  {
+    id: 69,
+    groupId: 27,
+    parent: 'ﻭ',
+    form: 'ـﻮ',
+    position: 'mid',
+    sound: 'waaw',
+    special: false,
+  },
+  {
+    id: 70,
+    groupId: 28,
+    parent: 'ﻱ',
+    form: 'ﻳـ',
+    position: 'start',
+    sound: 'ya',
+    special: false,
+  },
+
+  {
+    id: 71,
+    groupId: 28,
+    parent: 'ﻱ',
+    form: 'ـﻴـ',
+    position: 'mid',
+    sound: 'ya',
+    special: false,
+  },
+
+  {
+    id: 72,
+    groupId: 28,
+    parent: 'ﻱ',
+    form: 'ـﻲ',
+    position: 'end',
+    sound: 'ya',
+    special: false,
   },
 ];
 
@@ -119,7 +703,7 @@ function displayScore(num1, num2) {
   const topNum = document.createElement('span');
   const divider = document.createElement('span');
   const totalNum = document.createElement('span');
-  const containerDiv = document.createElement('div');
+  const containerDiv = createElement('div')();
 
   topNum.textContent = num1;
   divider.textContent = '/';
@@ -134,9 +718,9 @@ function displayScore(num1, num2) {
 
 function displayCorrect() {
   const correctLetter = correct[correct.length - 1];
-  const letterDiv = document.createElement('div');
+  const letterDiv = createElement('div');
   letterDiv.id = correctLetter.id;
-  letterDiv.textContent = correctLetter.name;
+  letterDiv.textContent = correctLetter.form;
   letterDiv.classList = 'box-sm green';
   resultsGridDiv.appendChild(letterDiv);
 }
@@ -147,13 +731,13 @@ function displayWrong() {
   let wrongLetterDiv;
   let count = 0;
 
+  errorTitleEl.style.display = 'block';
+
   wrong.forEach((letter) => {
     if (letter === wrongLetter) {
       count += 1;
     }
   });
-
-  console.log(count);
 
   if (count <= 1) {
     wrongLetterDiv = createWrongLetterDiv(wrongLetter);
@@ -161,10 +745,7 @@ function displayWrong() {
   }
 
   if (count > 1) {
-    console.log('count > 1....');
     const existingWrongLetters = resultsGridDiv.children;
-    console.log(existingWrongLetters);
-    console.log(wrongLetterId);
     for (let i = 0; i < existingWrongLetters.length; i++) {
       if (existingWrongLetters[i].id == wrongLetterId) {
         const countBubble = document.createElement('span');
@@ -177,11 +758,28 @@ function displayWrong() {
 }
 
 function createWrongLetterDiv(letterObj) {
-  const wrongLetterDiv = document.createElement('div');
-  wrongLetterDiv.id = letterObj.id;
-  wrongLetterDiv.textContent = letterObj.name;
-  wrongLetterDiv.classList = 'box-sm red';
-  return wrongLetterDiv;
+  const errorContainer = createElement('div');
+  const correctLetterDiv = createElement('div');
+  const wrongLetterPosition = createElement('span');
+  const correctLetterSound = createElement('span');
+  const wrongLetterDiv = createElement('div');
+  wrongLetterPosition.textContent = letterObj.position;
+  correctLetterSound.textContent = letterObj.sound;
+  correctLetterDiv.textContent = letterObj.parent;
+  errorContainer.classList = 'error';
+  correctLetterDiv.classList = 'box-sm green';
+  wrongLetterDiv.id = randomLetter.id;
+  wrongLetterDiv.textContent = letterObj.form;
+  wrongLetterDiv.classList = 'box-sm red mb-1';
+  wrongLetterDiv.appendChild(wrongLetterPosition);
+  correctLetterDiv.appendChild(correctLetterSound);
+  errorContainer.appendChild(wrongLetterDiv);
+  errorContainer.appendChild(correctLetterDiv);
+  return errorContainer;
+}
+function createElement(element) {
+  const newElement = document.createElement(element);
+  return newElement;
 }
 
 function restartGame() {
@@ -195,13 +793,18 @@ function restartGame() {
   errorTitleEl.style.display = 'none';
 }
 
+function flashLetter(letter, color) {
+  letter.classList.add(color);
+  setTimeout(function () {
+    letter.classList.remove(color);
+  }, 600);
+}
+
 function checkAnswer(e) {
   if (!positionCheck()) {
     alert('select a position');
     return;
   }
-
-  errorTitleEl.style.display = 'block';
 
   if (
     gameState &&
@@ -209,12 +812,12 @@ function checkAnswer(e) {
     randomLetter.position === position
   ) {
     correct.push(randomLetter);
-    displayCorrect();
-    console.log('correct', correct);
+    flashLetter(e.target, 'green');
   } else {
     wrong.push(randomLetter);
+    flashLetter(e.target, 'red');
+
     displayWrong();
-    console.log('wrong', wrong);
   }
   checkGameState();
 }
@@ -261,7 +864,6 @@ function checkGameState() {
 function endGame() {
   gameState = false;
   gameOverDiv.style.top = 0;
-  console.log('GAME OVER!');
 }
 
 function startGame() {
@@ -270,7 +872,7 @@ function startGame() {
 }
 
 function displayTestLetter(letter) {
-  testLetterDiv.innerHTML = letter.name;
+  testLetterDiv.innerHTML = letter.form;
   testLetterDiv.id = letter.groupId;
 }
 

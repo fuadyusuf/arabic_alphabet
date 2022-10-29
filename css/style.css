@@ -39,6 +39,10 @@ label{
   padding-bottom: 20px;
 }
 
+.mb-1{
+  margin-bottom: 2px;
+}
+
 .mb-2{
   margin-bottom: 20px;
 }
@@ -76,32 +80,45 @@ label{
   background-color: var(--green);
 }
 
-.box-sm {
-  align-self: center;
+.box-sm{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   text-align: center;
-  font-size: 4rem;
-  width: 90px;
-  height: 90px;
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
   transition: 0.1s ease-in;
   cursor: pointer;
   border: 2px solid #000;
   position: relative;
 }
 
+.box-sm span{
+  font-size: .7rem;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
 .box-bg {
   align-self: center;
   text-align: center;
   color: var(--blue);
-  width: 130px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   margin: 50px auto 30px auto;
   border: 5px solid #000;
-  padding-bottom: 20px;
 }
+
 /* container */
 .body{
   position: relative;
 }
+
+/* .container{
+  width: 100%;
+} */
 
 /* End game */
 .end-game{
@@ -241,6 +258,7 @@ label{
   grid-template-columns: repeat(7, 1fr);
   gap: .8rem;
   direction: rtl;
+  width: 100%;
 }
 
 .count{
@@ -260,5 +278,5 @@ label{
 }
 
 .test-letter{
-  font-size: 6rem;
+  font-size: 4rem;
 }
