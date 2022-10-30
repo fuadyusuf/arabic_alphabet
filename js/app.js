@@ -732,7 +732,7 @@ const lettersObjectArray = [
 //     special: false,
 //   },
 // ];
-
+/*
 (() => {
   letters.forEach((letter) => {
     letter.addEventListener('click', checkAnswer);
@@ -964,3 +964,4 @@ function generateRandomLetterObj(id) {
 
   return randomLetterObj;
 }
+*/
