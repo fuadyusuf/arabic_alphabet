@@ -8,6 +8,7 @@
   --blue: rgb(9, 122, 252);
   --red: rgb(228, 55, 25);
   --green: rgb(0, 145, 0);
+  --black: #333;
 }
 
 body {
@@ -52,10 +53,17 @@ label{
 .mb-4{
   margin-bottom: 40px;
 }
+.mt-4{
+  margin-top: 40px;
+}
 
 .red{
   color: #fff;
   background-color: var(--red) !important;
+}
+.black{
+  color: #fff;
+  background-color: var(--black) !important;
 }
 
 .red:hover {
@@ -196,6 +204,25 @@ label{
 }
 
 /* score */
+.scoreBox{
+  margin-top: 24px;
+}
+.scoreBox span{
+  padding: 3px;
+}
+
+.scoreBox div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #000;
+}
+
 .score-container{
   display: flex;
   justify-content: center;
@@ -216,8 +243,6 @@ label{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  margin: auto 0;
 }
 
 .options{
