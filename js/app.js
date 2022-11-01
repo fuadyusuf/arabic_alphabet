@@ -775,14 +775,14 @@ function displayScore(num1, num2) {
   resultDiv.appendChild(containerDiv);
 }
 
-function displayCorrect() {
-  const correctLetter = correct[correct.length - 1];
-  const letterDiv = createElement('div');
-  letterDiv.id = correctLetter.id;
-  letterDiv.textContent = correctLetter.form;
-  letterDiv.classList = 'box-sm green';
-  resultsGridDiv.appendChild(letterDiv);
-}
+// function displayCorrect() {
+//   const correctLetter = correct[correct.length - 1];
+//   const letterDiv = createElement('div');
+//   letterDiv.id = correctLetter.id;
+//   letterDiv.textContent = correctLetter.form;
+//   letterDiv.classList = 'box-sm green';
+//   resultsGridDiv.appendChild(letterDiv);
+// }
 
 function displayWrong() {
   const wrongLetter = wrong[wrong.length - 1];
