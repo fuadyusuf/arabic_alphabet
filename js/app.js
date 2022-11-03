@@ -24,7 +24,7 @@ let minutes = 00;
 let seconds = 00;
 let Interval;
 
-LetterObjectArray
+//LetterObjectArray
 const lettersObjectArray = [
   {
     id: 1,
