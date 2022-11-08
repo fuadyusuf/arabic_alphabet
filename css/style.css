@@ -117,6 +117,7 @@ input[type="radio"], label{
   font-family: 'Uthman Naskh';
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   text-align: center;
   font-size: 2.5rem;
@@ -156,6 +157,86 @@ input[type="radio"], label{
   font-size: 3.5rem;
 }
 
+.correction-modal{
+  display: none;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.correction-modal p{
+  font-size: 1.2rem;
+}
+
+.correction-modal .box-sm {
+  cursor:default;
+  pointer-events: none;
+}
+
+.correction-modal .left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  width: 50%;
+  height: 100%;
+  background-color: #000;
+}
+
+.correction-modal .left .top,
+.correction-modal .left .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.correction-ssection,
+.choice{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.correction-modal .right{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+}
+
+.okBtn{
+  border: none;
+  border-radius: 3px;
+  width: 50%;
+  padding: 20px 0;
+  background-color: var(--blue);
+  margin-top: 1.8rem;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.okBtn:hover {
+  scale: 1.1;
+}
+
+.error-letter{
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.game-over{
+  display: none;
+}
+
 /* container */
 .body{
   position: relative;
@@ -167,7 +248,7 @@ input[type="radio"], label{
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-  padding: 50px;
+  padding: 25px 50px 50px 50px;
   background-color: var(--light-blue);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 5px;
@@ -187,9 +268,7 @@ input[type="radio"], label{
   font-family: 'Digital-7 Mono Mono';
   font-size: 1.3rem;
   font-weight: 700;
-  position: absolute;
-  top: -35px;
-  right: -20px;
+  margin: 0 auto;
   width: 68px;
   height: 25px;
   background-color: #fff;
@@ -197,18 +276,19 @@ input[type="radio"], label{
 }
 
 /* End game */
-.end-game{
-  display: flex;
+.modal-container{
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -1000%;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: .2s ease-in;
+  z-index: 1;
 }
 
 .modal{

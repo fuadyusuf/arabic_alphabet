@@ -4,10 +4,13 @@ const secondsSpan = document.querySelector('#secs');
 const errorTitleEl = document.querySelector('.error-title');
 const resultsGridDiv = document.querySelector('.results-grid');
 const closeModelEl = document.querySelector('.modal .fa-xmark');
+const okBtnModelEl = document.querySelector('.okBtn');
 const timeTakenSpan = document.querySelector('.timeTaken');
 const closeTestBtn = document.getElementById('closeApp');
 const restartTestBtn = document.getElementById('restart');
-const gameOverDiv = document.querySelector('.end-game');
+const gameOverDiv = document.querySelector('.modal-container');
+const gameOverModal = document.querySelector('.game-over');
+const correctionModal = document.querySelector('.correction-modal');
 const letters = document.querySelectorAll('.box-sm');
 const correctNumDiv = document.querySelector('.correctScore');
 const wrongNumDiv = document.querySelector('.wrongScore');
@@ -24,7 +27,7 @@ let minutes = 00;
 let seconds = 00;
 let Interval;
 
-// LetterObjectArray
+//Full Data
 // const lettersObjectArray = [
 //   {
 //     id: 1,
@@ -682,6 +685,7 @@ let Interval;
 //   },
 // ];
 
+//Test Data
 const lettersObjectArray = [
   {
     id: 1,
@@ -746,6 +750,7 @@ const lettersObjectArray = [
   restartTestBtn.addEventListener('click', restartGame);
   closeTestBtn.addEventListener('click', closeTest);
   closeModelEl.addEventListener('click', restartGame);
+  okBtnModelEl.addEventListener('click', closeWrongModal);
   window.addEventListener('load', checkGameState);
   startTimer();
 })();
@@ -820,16 +825,7 @@ function displayScore(num1, num2) {
   resultDiv.appendChild(containerDiv);
 }
 
-// function displayCorrect() {
-//   const correctLetter = correct[correct.length - 1];
-//   const letterDiv = createElement('div');
-//   letterDiv.id = correctLetter.id;
-//   letterDiv.textContent = correctLetter.form;
-//   letterDiv.classList = 'box-sm green';
-//   resultsGridDiv.appendChild(letterDiv);
-// }
-
-function displayWrong() {
+function displayWrong(e) {
   const wrongLetter = wrong[wrong.length - 1];
   const wrongLetterId = wrongLetter.id;
   let wrongLetterDiv;
@@ -844,7 +840,7 @@ function displayWrong() {
   });
 
   if (count <= 1) {
-    wrongLetterDiv = createWrongLetterDiv(wrongLetter);
+    wrongLetterDiv = createWrongLetterDiv(e, wrongLetter);
     resultsGridDiv.appendChild(wrongLetterDiv);
   }
 
@@ -862,12 +858,15 @@ function displayWrong() {
   }
 }
 
-function createWrongLetterDiv(letterObj) {
+function createWrongLetterDiv(e, letterObj) {
   const errorContainer = createElement('div');
   const correctLetterDiv = createElement('div');
   const wrongLetterPosition = createElement('span');
   const correctLetterSound = createElement('span');
   const wrongLetterDiv = createElement('div');
+  const chosenLetterDiv = createElement('div');
+  chosenLetterDiv.classList = 'error';
+  chosenLetterDiv.textContent = e.target.textContent;
   wrongLetterPosition.textContent = letterObj.position;
   correctLetterSound.textContent = letterObj.sound;
   correctLetterDiv.textContent = letterObj.parent;
@@ -878,10 +877,31 @@ function createWrongLetterDiv(letterObj) {
   wrongLetterDiv.classList = 'box-sm red mb-1';
   wrongLetterDiv.appendChild(wrongLetterPosition);
   correctLetterDiv.appendChild(correctLetterSound);
+  errorContainer.appendChild(chosenLetterDiv);
   errorContainer.appendChild(wrongLetterDiv);
   errorContainer.appendChild(correctLetterDiv);
+
+  displayWrongModal(randomLetterObj, e.target);
+
   return errorContainer;
 }
+
+function displayWrongModal(correctLetter, chosenLetter) {
+  // display wrong modal
+  gameOverDiv.style.display = 'flex';
+  closeModelEl.style.display = 'none';
+  correctionModal.style.display = 'flex';
+  // okBtnModelEl
+  console.log(correctLetter);
+  console.log(chosenLetter);
+}
+
+function closeWrongModal() {
+  gameOverDiv.style.display = 'none';
+  gameOverModal.style.display = 'none';
+  correctionModal.style.display = 'none';
+}
+
 function createElement(element) {
   const newElement = document.createElement(element);
   return newElement;
@@ -891,7 +911,8 @@ function restartGame() {
   gameState = true;
   correct = [];
   wrong = [];
-  gameOverDiv.style.top = '1000%';
+  gameOverDiv.style.display = 'none';
+  gameOverModal.style.display = 'none';
   resultsGridDiv.innerHTML = '';
   unCheckRadioBtns();
   checkGameState();
@@ -921,11 +942,10 @@ function checkAnswer(e) {
   ) {
     correct.push(randomLetter);
     flashLetter(e.target, 'green');
-    // displayCorrect();
   } else {
     wrong.push(randomLetter);
     flashLetter(e.target, 'red');
-    displayWrong();
+    displayWrong(e);
   }
   showScore();
   checkGameState();
@@ -973,7 +993,9 @@ function checkGameState() {
 
 function endGame() {
   gameState = false;
-  gameOverDiv.style.top = 0;
+  gameOverDiv.style.display = 'flex';
+  closeModelEl.style.display = 'flex';
+  gameOverModal.style.display = 'block';
   timeTakenSpan.style.color = 'var(--orange)';
   timeTakenSpan.style.fontSize = '1.1rem';
   timeTakenSpan.textContent = `Time: ${minutes}m : ${seconds}s`;
