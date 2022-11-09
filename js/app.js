@@ -850,17 +850,17 @@ function displayWrong(e) {
   let wrongLetterDiv;
   let count = 0;
 
-  // errorTitleEl.style.display = 'block';
+  errorTitleEl.style.display = 'block';
 
-  // wrong.forEach((letter) => {
-  //   if (letter === wrongLetter) {
-  //     count += 1;
-  //   }
-  // });
+  wrong.forEach((letter) => {
+    if (letter === wrongLetter) {
+      count += 1;
+    }
+  });
 
   if (count <= 1) {
     wrongLetterDiv = createWrongLetterDiv(e, wrongLetter);
-    // resultsGridDiv.appendChild(wrongLetterDiv);
+    resultsGridDiv.appendChild(wrongLetterDiv);
   }
 
   if (count > 1) {
@@ -870,10 +870,9 @@ function displayWrong(e) {
         const countBubble = createElement('div');
         countBubble.classList = 'count';
         countBubble.textContent = count;
-        // existingWrongLetters[i].childNodes[0].appendChild(countBubble);
+        existingWrongLetters[i].childNodes[0].appendChild(countBubble);
       }
     }
-    // existingWrongLetters.reverse();
   }
 }
 
@@ -912,7 +911,9 @@ function displayWrongModal(e) {
   });
 
   if (typeof chosenLetterObj === 'undefined') {
-    alert("This letter doesn't have a middle");
+    alert(
+      `The letter you chose ( ${e.target.textContent} ) has no middle position`
+    );
     return;
   } else {
     gameOverDiv.style.display = 'flex';
@@ -1003,7 +1004,7 @@ function checkAnswer(e) {
     wrong.push(randomLetter);
     flashLetter(e.target, 'red');
     displayWrongModal(e);
-    // displayWrong(e);
+    displayWrong(e);
   }
   showScore();
   checkGameState();
