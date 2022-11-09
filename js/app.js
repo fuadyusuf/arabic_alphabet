@@ -35,7 +35,7 @@ let minutes = 00;
 let seconds = 00;
 let Interval;
 
-/*Full Data 
+//Full Data
 const lettersObjectArray = [
   {
     id: 1,
@@ -692,9 +692,9 @@ const lettersObjectArray = [
     special: false,
   },
 ];
-*/
 
 //Test Data
+/*
 const lettersObjectArray = [
   {
     id: 1,
@@ -760,6 +760,7 @@ const lettersObjectArray = [
     special: false,
   },
 ];
+*/
 
 (() => {
   letters.forEach((letter) => {
