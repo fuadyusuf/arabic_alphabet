@@ -35,7 +35,7 @@ let minutes = 00;
 let seconds = 00;
 let Interval;
 
-/*Full Data */
+/*Full Data 
 const lettersObjectArray = [
   {
     id: 1,
@@ -692,8 +692,9 @@ const lettersObjectArray = [
     special: false,
   },
 ];
+*/
 
-/*Test Data 
+//Test Data
 const lettersObjectArray = [
   {
     id: 1,
@@ -749,8 +750,16 @@ const lettersObjectArray = [
     sound: 'ta',
     special: false,
   },
+  {
+    id: 7,
+    groupId: 3,
+    parent: 'ﺕ',
+    form: 'ـﺖ',
+    position: 'end',
+    sound: 'ta',
+    special: false,
+  },
 ];
-*/
 
 (() => {
   letters.forEach((letter) => {
@@ -842,11 +851,11 @@ function displayWrong(e) {
 
   // errorTitleEl.style.display = 'block';
 
-  wrong.forEach((letter) => {
-    if (letter === wrongLetter) {
-      count += 1;
-    }
-  });
+  // wrong.forEach((letter) => {
+  //   if (letter === wrongLetter) {
+  //     count += 1;
+  //   }
+  // });
 
   if (count <= 1) {
     wrongLetterDiv = createWrongLetterDiv(e, wrongLetter);
@@ -863,7 +872,7 @@ function displayWrong(e) {
         // existingWrongLetters[i].childNodes[0].appendChild(countBubble);
       }
     }
-    existingWrongLetters.reverse();
+    // existingWrongLetters.reverse();
   }
 }
 
@@ -890,46 +899,63 @@ function createWrongLetterDiv(e, letterObj) {
   errorContainer.appendChild(wrongLetterDiv);
   errorContainer.appendChild(correctLetterDiv);
 
-  displayWrongModal(e);
-
   return errorContainer;
 }
 
 function displayWrongModal(e) {
   let chosenLetterObj;
-  gameOverDiv.style.display = 'flex';
-  closeModalEl.style.display = 'none';
-  correctionModal.style.display = 'flex';
-
   lettersObjectArray.forEach((letter) => {
     if (letter.groupId == e.target.id && letter.position === position) {
       chosenLetterObj = letter;
     }
   });
 
-  choiceBoxModalEl.textContent = chosenLetterObj.parent;
-  choiceBoxModalEl.classList = 'box-sm red';
-  choicePositionModalEl.textContent = position;
+  if (typeof chosenLetterObj === 'undefined') {
+    alert("This letter doesn't have a middle");
+    return;
+  } else {
+    gameOverDiv.style.display = 'flex';
+    closeModalEl.style.display = 'none';
+    correctionModal.style.display = 'flex';
 
-  correctBoxModalEl.textContent = randomLetterObj.parent;
-  correctBoxModalEl.classList = 'box-sm green';
-  correctPositionModalEl.textContent = randomLetterObj.position;
+    choiceBoxModalEl.textContent = chosenLetterObj.parent;
+    choiceBoxModalEl.classList = 'box-sm red';
+    choicePositionModalEl.textContent = position;
 
-  testBoxModalEl.textContent = randomLetterObj.form;
-  testLetterModalSpanPos.textContent = randomLetterObj.position;
-  testLetterModalSpanSound.textContent = randomLetterObj.sound;
+    correctBoxModalEl.textContent = randomLetterObj.parent;
+    correctBoxModalEl.classList = 'box-sm green';
+    correctPositionModalEl.textContent = randomLetterObj.position;
 
+    testBoxModalEl.textContent = randomLetterObj.form;
+    testLetterModalSpanPos.textContent = randomLetterObj.position;
+    testLetterModalSpanSound.textContent = randomLetterObj.sound;
+  }
+
+  console.log(e.target);
   console.log(position);
-  console.log(chosenLetterObj);
+
   console.log(randomLetterObj);
-  // console.log(randomLetterObj.position);
-  // console.log(randomLetterObj.english);
+  console.log(randomLetterObj.position);
+  console.log(randomLetterObj.sound);
 }
 
 function closeWrongModal() {
   gameOverDiv.style.display = 'none';
   gameOverModal.style.display = 'none';
   correctionModal.style.display = 'none';
+  clearWrongModalValues();
+}
+
+function clearWrongModalValues() {
+  choiceBoxModalEl.textContent = '';
+  choicePositionModalEl.textContent = '';
+
+  correctBoxModalEl.textContent = '';
+  correctPositionModalEl.textContent = '';
+
+  testBoxModalEl.textContent = '';
+  testLetterModalSpanPos.textContent = '';
+  testLetterModalSpanSound.textContent = '';
 }
 
 function createElement(element) {
@@ -975,7 +1001,8 @@ function checkAnswer(e) {
   } else {
     wrong.push(randomLetter);
     flashLetter(e.target, 'red');
-    displayWrong(e);
+    displayWrongModal(e);
+    // displayWrong(e);
   }
   showScore();
   checkGameState();

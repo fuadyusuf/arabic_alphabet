@@ -520,4 +520,9 @@ input[type="radio"], label{
   .error-title {
     margin: 20px 20px;
   }
+
+  .modal{
+    width: 97%;
+    margin: 0 2px;
+  }
 }
