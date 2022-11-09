@@ -38,7 +38,7 @@
               </div>
               <div class="bottom">
                 <p>Correct answer</p>
-                <div class="correction-ssection">
+                <div class="correction-section">
                   <div class="correct-position">Mid</div>
                   <div class="correct-letter box-sm green">ﻅ</div>
                 </div>
@@ -46,7 +46,11 @@
             </div>
             <div class="right">
               <p>Test letter</p>
-              <div class="error-letter box-bg">ـﻈـ</div>
+              <div class="testLetterContainer">
+                <div class="error-letter box-bg">ـﻈـ</div>
+                <span class="letterPos">start</span>
+                <span class="letterSound">baa</span>
+              </div>
               <button class="okBtn">OK</button>
             </div>
           </div>
@@ -125,7 +129,7 @@
       </div>
       <!-- results grid -->
       <h2 class="error-title">Errors</h2>
-      <div class="results-grid"></div>
+      <div class="results-grid hide"></div>
     </div>
 
     <script src="./js/app.js"></script>
