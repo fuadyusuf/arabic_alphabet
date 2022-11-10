@@ -11,11 +11,14 @@ const correctPositionModalEl = document.querySelector('.correct-position');
 const testBoxModalEl = document.querySelector('.error-letter');
 const testLetterModalSpanPos = document.querySelector('.letterPos');
 const testLetterModalSpanSound = document.querySelector('.letterSound');
-const okBtnModalEl = document.querySelector('.okBtn');
+const correctionOkBtn = document.querySelector('#correctionOK');
+const okInfoBtnModalEl = document.querySelector('#okInfo');
 const timeTakenSpan = document.querySelector('.timeTaken');
 const closeTestBtn = document.getElementById('closeApp');
 const restartTestBtn = document.getElementById('restart');
 const gameOverDiv = document.querySelector('.modal-container');
+const infoModalDiv = document.querySelector('.info');
+const erroInfoPara = document.querySelector('.errorInfo');
 const gameOverModal = document.querySelector('.game-over');
 const correctionModal = document.querySelector('.correction-modal');
 const letters = document.querySelectorAll('.box-sm');
@@ -31,12 +34,10 @@ let position;
 let correct = [];
 let wrong = [];
 let minutes = 00;
-5;
 let seconds = 00;
 let Interval;
 
 //Full Data
-
 const lettersObjectArray = [
   {
     id: 1,
@@ -694,8 +695,8 @@ const lettersObjectArray = [
   },
 ];
 
-/*
 //Test Data
+/*
 const lettersObjectArray = [
   {
     id: 1,
@@ -770,7 +771,8 @@ const lettersObjectArray = [
   restartTestBtn.addEventListener('click', restartGame);
   closeTestBtn.addEventListener('click', closeTest);
   closeModalEl.addEventListener('click', restartGame);
-  okBtnModalEl.addEventListener('click', closeWrongModal);
+  okInfoBtnModalEl.addEventListener('click', closeWrongModal);
+  correctionOkBtn.addEventListener('click', closeWrongModal);
   window.addEventListener('load', checkGameState);
   startTimer();
 })();
@@ -867,8 +869,6 @@ function displayWrong(e) {
   if (count > 1) {
     const existingWrongLetters = resultsGridDiv.children;
     for (let i = 0; i < existingWrongLetters.length; i++) {
-      console.log(existingWrongLetters);
-      console.log(wrongLetterId);
       if (existingWrongLetters[i].childNodes[1].id == wrongLetterId) {
         const countBubble = createElement('div');
         countBubble.classList = 'count';
@@ -888,6 +888,7 @@ function createWrongLetterDiv(e, letterObj) {
   const chosenLetterDiv = createElement('div');
   chosenLetterDiv.classList = 'error';
   chosenLetterDiv.textContent = e.target.textContent;
+  chosenLetterDiv.classList = 'box-sm red mb-1';
   wrongLetterPosition.textContent = letterObj.position;
   correctLetterSound.textContent = letterObj.sound;
   correctLetterDiv.textContent = letterObj.parent;
@@ -896,7 +897,7 @@ function createWrongLetterDiv(e, letterObj) {
   correctLetterDiv.classList = 'box-sm green';
   wrongLetterDiv.id = randomLetter.id;
   wrongLetterDiv.textContent = letterObj.form;
-  wrongLetterDiv.classList = 'box-sm red mb-1';
+  wrongLetterDiv.classList = 'box-sm green mb-1';
   wrongLetterDiv.appendChild(wrongLetterPosition);
   correctLetterDiv.appendChild(correctLetterSound);
   errorContainer.appendChild(chosenLetterDiv);
@@ -904,6 +905,15 @@ function createWrongLetterDiv(e, letterObj) {
   errorContainer.appendChild(correctLetterDiv);
 
   return errorContainer;
+}
+
+// function clearInfoModal() {}
+function showInfoModal(e) {
+  gameOverDiv.style.display = 'flex';
+  closeModalEl.style.display = 'none';
+  infoModalDiv.style.display = 'flex';
+  erroInfoPara.innerHTML = '';
+  erroInfoPara.innerHTML = `<span class="specialLetter">( ${e.target.textContent} )</span> has no START or MIDDLE form. The start form is the main letter <span class="specialLetter">( ${e.target.textContent} )</span>`;
 }
 
 function displayWrongModal(e) {
@@ -915,12 +925,15 @@ function displayWrongModal(e) {
   });
 
   if (typeof chosenLetterObj === 'undefined') {
-    alert(
-      `The letter you chose ( ${e.target.textContent} ) has no START or MIDDLE form`
-    );
+    // alert(
+    //   `The letter you chose ( ${e.target.textContent} ) has no START or MIDDLE form`
+    // );
+    showInfoModal(e);
+
     return;
   } else {
     gameOverDiv.style.display = 'flex';
+    infoModalDiv.style.display = 'none';
     closeModalEl.style.display = 'none';
     correctionModal.style.display = 'flex';
 
@@ -940,8 +953,10 @@ function displayWrongModal(e) {
 
 function closeWrongModal() {
   gameOverDiv.style.display = 'none';
+  infoModalDiv.style.display = 'none';
   gameOverModal.style.display = 'none';
   correctionModal.style.display = 'none';
+  console.log('OK btn....');
   clearWrongModalValues();
 }
 
