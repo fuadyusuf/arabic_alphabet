@@ -916,7 +916,7 @@ function displayWrongModal(e) {
 
   if (typeof chosenLetterObj === 'undefined') {
     alert(
-      `The letter you chose ( ${e.target.textContent} ) has no middle position`
+      `The letter you chose ( ${e.target.textContent} ) has no START or MIDDLE form`
     );
     return;
   } else {
