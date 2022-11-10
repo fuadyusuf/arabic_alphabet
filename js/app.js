@@ -36,6 +36,7 @@ let seconds = 00;
 let Interval;
 
 //Full Data
+
 const lettersObjectArray = [
   {
     id: 1,
@@ -693,8 +694,8 @@ const lettersObjectArray = [
   },
 ];
 
-//Test Data
 /*
+//Test Data
 const lettersObjectArray = [
   {
     id: 1,
@@ -866,11 +867,13 @@ function displayWrong(e) {
   if (count > 1) {
     const existingWrongLetters = resultsGridDiv.children;
     for (let i = 0; i < existingWrongLetters.length; i++) {
-      if (existingWrongLetters[i].childNodes[0].id == wrongLetterId) {
+      console.log(existingWrongLetters);
+      console.log(wrongLetterId);
+      if (existingWrongLetters[i].childNodes[1].id == wrongLetterId) {
         const countBubble = createElement('div');
         countBubble.classList = 'count';
         countBubble.textContent = count;
-        existingWrongLetters[i].childNodes[0].appendChild(countBubble);
+        existingWrongLetters[i].childNodes[1].appendChild(countBubble);
       }
     }
   }
@@ -889,6 +892,7 @@ function createWrongLetterDiv(e, letterObj) {
   correctLetterSound.textContent = letterObj.sound;
   correctLetterDiv.textContent = letterObj.parent;
   errorContainer.classList = 'error';
+  errorContainer.id = letterObj.id;
   correctLetterDiv.classList = 'box-sm green';
   wrongLetterDiv.id = randomLetter.id;
   wrongLetterDiv.textContent = letterObj.form;
@@ -932,13 +936,6 @@ function displayWrongModal(e) {
     testLetterModalSpanPos.textContent = randomLetterObj.position;
     testLetterModalSpanSound.textContent = randomLetterObj.sound;
   }
-
-  console.log(e.target);
-  console.log(position);
-
-  console.log(randomLetterObj);
-  console.log(randomLetterObj.position);
-  console.log(randomLetterObj.sound);
 }
 
 function closeWrongModal() {
