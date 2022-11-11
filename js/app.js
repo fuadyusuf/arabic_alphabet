@@ -38,6 +38,7 @@ let seconds = 00;
 let Interval;
 
 //Full Data
+
 const lettersObjectArray = [
   {
     id: 1,
@@ -874,6 +875,12 @@ function displayWrong(e) {
         countBubble.classList = 'count';
         countBubble.textContent = count;
         existingWrongLetters[i].childNodes[1].appendChild(countBubble);
+
+        const chosenLetterDiv = createElement('div');
+        chosenLetterDiv.classList = 'error';
+        chosenLetterDiv.textContent = e.target.textContent;
+        chosenLetterDiv.classList = 'box-sm red mb-1';
+        existingWrongLetters[i].appendChild(chosenLetterDiv);
       }
     }
   }
@@ -928,11 +935,7 @@ function displayWrongModal(e) {
   });
 
   if (typeof chosenLetterObj === 'undefined') {
-    // alert(
-    //   `The letter you chose ( ${e.target.textContent} ) has no START or MIDDLE form`
-    // );
     showInfoModal(e);
-
     return;
   } else {
     gameOverDiv.style.display = 'flex';
