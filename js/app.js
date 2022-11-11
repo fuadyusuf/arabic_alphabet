@@ -884,11 +884,14 @@ function createWrongLetterDiv(e, letterObj) {
   const correctLetterDiv = createElement('div');
   const wrongLetterPosition = createElement('span');
   const correctLetterSound = createElement('span');
+  const chosenPositionSpan = createElement('span');
   const wrongLetterDiv = createElement('div');
   const chosenLetterDiv = createElement('div');
+  chosenPositionSpan.textContent = position;
   chosenLetterDiv.classList = 'error';
   chosenLetterDiv.textContent = e.target.textContent;
   chosenLetterDiv.classList = 'box-sm red mb-1';
+  chosenLetterDiv.appendChild(chosenPositionSpan);
   wrongLetterPosition.textContent = letterObj.position;
   correctLetterSound.textContent = letterObj.sound;
   correctLetterDiv.textContent = letterObj.parent;
