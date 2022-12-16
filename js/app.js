@@ -26,6 +26,12 @@ const correctNumDiv = document.querySelector('.correctScore');
 const wrongNumDiv = document.querySelector('.wrongScore');
 const remainingNumDiv = document.querySelector('.remaining');
 const scoreBox = document.querySelector('.scoreBox').childNodes;
+
+const crossIcon = createElement('i');
+crossIcon.classList = 'fa-solid fa-xmark';
+const checkIcon = createElement('i');
+checkIcon.classList = 'fa-solid fa-check';
+
 let gameState = true;
 let randomNumber;
 let randomLetter;
@@ -38,7 +44,6 @@ let seconds = 00;
 let Interval;
 
 //Full Data
-
 const lettersObjectArray = [
   {
     id: 1,
@@ -764,7 +769,6 @@ const lettersObjectArray = [
   },
 ];
 */
-
 (() => {
   letters.forEach((letter) => {
     letter.addEventListener('click', checkAnswer);
@@ -820,8 +824,8 @@ function showScore() {
   scoreBox.forEach((div) => {
     div.textContent = '';
   });
-  correctNumDiv.textContent = Number(correct.length);
-  wrongNumDiv.textContent = Number(wrong.length);
+  correctNumDiv.innerHTML = checkIcon.outerHTML + Number(correct.length);
+  wrongNumDiv.innerHTML = crossIcon.outerHTML + Number(wrong.length);
   remainingNumDiv.textContent =
     Number(lettersObjectArray.length) - Number(correct.length);
 }
