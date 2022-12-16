@@ -541,8 +541,7 @@ input[type="radio"], label{
   }
 
   .top-section{
-    width: 95%;
-    justify-content: space-around;
+    width: 110%;
     margin-bottom: 0;
   }
 
